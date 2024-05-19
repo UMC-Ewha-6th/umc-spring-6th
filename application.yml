@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/umcmission?serverTimezone=Asia/Seoul
+    username: root
+    password: Mtlstnwjd58^^
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # 여기에 지정합니다.
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      show_sql: true
+      format_sql: true
+      use_sql_comments: true
+      default_batch_fetch_size: 1000
