@@ -31,6 +31,7 @@ public class MemberConverter {
         }
 
         return Member.builder()
+                .birthday(request.getBirthday())
                 .address(request.getAddress())
                 .memberPreferList(new ArrayList<>())
                 .gender(gender)

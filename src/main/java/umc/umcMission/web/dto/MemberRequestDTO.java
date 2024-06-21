@@ -16,15 +16,9 @@ public class MemberRequestDTO {
         @NotNull
         Integer gender;
         @NotNull
-        Integer birthYear;
-        @NotNull
-        Integer birthMonth;
-        @NotNull
-        Integer birthDay;
+        String birthday;
         @NotNull
         String address;
-        @NotNull
-        String specAddress;
         @ExistCategories
         List<Long> preferFoodCategory;
     }
