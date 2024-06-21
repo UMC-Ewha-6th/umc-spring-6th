@@ -3,6 +3,8 @@ package umc.umcMission.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.umcMission.domain.common.BaseEntity;
 import umc.umcMission.domain.enums.Gender;
 import umc.umcMission.domain.enums.MemberStatus;
@@ -16,6 +18,8 @@ import java.util.List;
 
 @Entity
 @Getter
+@DynamicInsert
+@DynamicUpdate
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
