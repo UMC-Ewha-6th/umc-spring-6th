@@ -1,4 +1,4 @@
-package umc.umcMission.domain.mapping;
+package umc.umcMission.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -18,8 +18,8 @@ public class MyPage {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     @OneToMany(mappedBy = "myPage")
     private List<PointLog> myPagepointLogList = new ArrayList<>();

@@ -1,8 +1,7 @@
-package umc.umcMission.domain.mapping;
+package umc.umcMission.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.umcMission.domain.common.BaseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,19 +11,19 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Alarm extends BaseEntity {
 
+public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
-
     @Column(nullable = false)
-    private String contents;
+    private String name;
 
-    @Column(nullable = false)
-    private String title;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @OneToMany(mappedBy = "region")
+    private List<Restaurant> regionRestaurantList = new ArrayList<>();
 }

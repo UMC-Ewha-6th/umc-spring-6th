@@ -1,8 +1,10 @@
-package umc.umcMission.domain.mapping;
+package umc.umcMission.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.umcMission.domain.enums.FoodType;
+import umc.umcMission.domain.Menu;
+import umc.umcMission.domain.Mission;
+import umc.umcMission.domain.Region;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,13 +32,13 @@ public class Restaurant {
     @Column(nullable = false)
     private boolean status; // 현재 주문 가능한지
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private FoodType foodType;
+//    @Enumerated(EnumType.STRING)
+//    @Column(nullable = false)
+//    private FoodType foodType;
 
-    @OneToMany(mappedBy = "restaurant")
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Menu> restaurantMenuList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "restaurant")
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Mission> restaurantMissionList = new ArrayList<>();
 }

@@ -1,4 +1,4 @@
-package umc.umcMission.domain.mapping;
+package umc.umcMission.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,8 +17,8 @@ public class PointLog {
     private int point; // 포인트 점수
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mission_id")

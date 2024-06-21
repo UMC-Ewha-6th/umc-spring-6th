@@ -1,8 +1,11 @@
-package umc.umcMission.domain.mapping;
+package umc.umcMission.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
 import umc.umcMission.domain.common.BaseEntity;
+
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Builder
@@ -24,11 +27,14 @@ public class Mission extends BaseEntity {
     private boolean isSuccess; // 미션 성공 여부
 
     @Column(nullable = false)
-    private int point;
+    private Integer rewardPoint;
+
+    @Column(nullable = false)
+    private LocalDateTime deadLine;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
